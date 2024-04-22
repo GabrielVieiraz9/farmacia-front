@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import Categoria from "../../../models/Categoria";
 
@@ -74,7 +74,7 @@ function FormularioCategoria() {
         </h1>
 
         <form
-          className="w-1/2 flex flex-col gap-4"
+          className="w-1/2 flex flex-col gap-4 pb-10"
           onSubmit={gerarNovaCategoria}
         >
           <div className="flex flex-col gap-2">
@@ -101,6 +101,20 @@ function FormularioCategoria() {
             </button>
           </div>
         </form>
+        <div className="flex justify-center w-full my-4 gap-4">
+          <Link
+            to="/categorias"
+            className="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Voltar para Categorias
+          </Link>
+          <Link
+            to="/home"
+            className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Voltar para a home
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { buscar, deletar } from "../../../services/Service";
 import Categoria from "../../../models/Categoria";
+import { Link } from "react-router-dom";
 
 function DeletarCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -50,25 +51,39 @@ function DeletarCategoria() {
           Você tem certeza de que deseja apagar o categoria a seguir?
         </p>
 
-        <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
+        <div className=" flex flex-col rounded-2xl overflow-hidden justify-between pb-5">
           <header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
             categoria
           </header>
-          <p className="p-8 text-3xl bg-slate-200 h-full">{categoria.nome}</p>
+          <p className=" p-8 text-3xl bg-slate-200 h-full">{categoria.nome}</p>
           <div className="flex">
             <button
-              className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
+              className="rounded-bl-2xl text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
               onClick={retornar}
             >
               Não
             </button>
             <button
-              className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center"
+              className="rounded-br-2xl w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center"
               onClick={deletarCategoria}
             >
               Sim
             </button>
           </div>
+        </div>
+        <div className="flex justify-center w-full my-4 gap-4">
+          <Link
+            to="/categorias"
+            className="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Voltar para Categorias
+          </Link>
+          <Link
+            to="/home"
+            className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Voltar para a home
+          </Link>
         </div>
       </div>
     </div>

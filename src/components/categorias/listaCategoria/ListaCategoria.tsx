@@ -3,6 +3,7 @@ import { Dna } from "react-loader-spinner";
 import Categoria from "../../../models/Categoria";
 import { buscar } from "../../../services/Service";
 import CardCategorias from "../cardCategorias/CardCategorias";
+import { Link } from "react-router-dom";
 
 function ListaCategorias() {
   const [categorias, setCategorias] = useState<Categoria[]>([]);
@@ -41,6 +42,33 @@ function ListaCategorias() {
                   <CardCategorias key={categoria.id} categoria={categoria} />
                 </>
               ))}
+            </div>
+            <div className="flex justify-center w-full my-4 gap-4">
+              <div className="pt-5">
+                <Link
+                  to="/editarCategoria/:id"
+                  className="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Editar categoria
+                </Link>
+              </div>
+
+              <div className="pt-5">
+                <Link
+                  to="/deletarCategoria/:id"
+                  className="inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Deletar categoria
+                </Link>
+              </div>
+            </div>
+            <div className="pt-5">
+              <Link
+                to="/home"
+                className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Voltar para a home
+              </Link>
             </div>
           </div>
         </div>
